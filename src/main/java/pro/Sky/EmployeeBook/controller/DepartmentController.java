@@ -1,17 +1,18 @@
 package pro.Sky.EmployeeBook.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pro.Sky.EmployeeBook.Employee;
 import pro.Sky.EmployeeBook.service.DepartmentService;
+import pro.Sky.EmployeeBook.service.DepartmentServiceImpl;
 import pro.Sky.EmployeeBook.service.EmployeeBookService;
 
+import java.util.List;
 import java.util.Map;
 
+
+
 @RestController
-@RequestMapping("/departments")
+@RequestMapping("/department")
 public class DepartmentController {
     private final DepartmentService departmentService;
 
@@ -19,23 +20,29 @@ public class DepartmentController {
         this.departmentService = departmentService;
     }
 
-    @GetMapping(path = "/max-salary")
-    public Employee maxSalaryByDepartment(@RequestParam("departmentID") int departmentID) {
-        return departmentService.maxSalaryByDepartment(departmentID);
+    @GetMapping(path = "/{ID}/employees")
+    public List<Employee> allEmployeeInDepartment(@PathVariable int ID) {
+        return departmentService.allEmployeeInDepartment(ID);
+    }
+
+    @GetMapping(path = "/{ID}/salary/sum")
+    public Employee sumSalaryByDepartment(@PathVariable int ID) {
+        return departmentService.sumSalaryByDepartment(ID);
 
     }
 
-    @GetMapping(path = "/min-salary")
-    public Employee minSalaryByDepartment(@RequestParam("departmentID") int departmentID) {
-        return departmentService.minSalaryByDepartment(departmentID);
+    @GetMapping(path = "/{ID}/salary/max")
+    public Employee maxSalaryByDepartment(@PathVariable int ID) {
+        return departmentService.maxSalaryByDepartment(ID);
+
     }
 
-    @GetMapping(path = "/allInDepartment")
-    public Employee allEmployeeInDepartment(@RequestParam("departmentID") int departmentID) {
-        return (Employee) departmentService.allEmployeeInDepartment(departmentID);
+    @GetMapping(path = "/{ID}/salary/min")
+    public Employee minSalaryByDepartment(@PathVariable int ID) {
+        return departmentService.minSalaryByDepartment(ID);
     }
 
-    @GetMapping(path = "/departments/all")
+    @GetMapping(path = "/employees")
     public Employee allEmployee() {
         return (Employee) departmentService.allEmployee();
     }

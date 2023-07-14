@@ -1,10 +1,8 @@
 package pro.Sky.EmployeeBook.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import pro.Sky.EmployeeBook.Employee;
-import pro.Sky.EmployeeBook.exeption.EmployeeAlreadyAddedException;
-import pro.Sky.EmployeeBook.exeption.EmployeeNotFoundException;
-import pro.Sky.EmployeeBook.exeption.EmployeeStorageIsFullException;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -24,25 +22,28 @@ public class DepartmentServiceImpl implements DepartmentService {
         return null;
     }
 
-    @Override
-    public Employee maxSalaryByDepartment(int departmentID) {
+    public List<Employee> allEmployeeInDepartment(int ID) {
         return employees.values().stream()
-                .filter(e -> Objects.equals(e.getDepartmentID(), departmentID))
+                .filter(e -> Objects.equals(e.getID(), ID))
+                .collect(Collectors.toList());
+    }
+
+    public Employee sumSalaryByDepartment(int ID) {
+        return null;
+    }
+
+    public Employee maxSalaryByDepartment(int ID) {
+        return employees.values().stream()
+                .filter(e -> Objects.equals(e.getID(), ID))
                 .max(Comparator.comparingDouble(Employee::getSalary))
                 .orElse(null);
     }
 
-    public Employee minSalaryByDepartment(int departmentID) {
+    public Employee minSalaryByDepartment(int ID) {
         return employees.values().stream()
-                .filter(e -> Objects.equals(e.getDepartmentID(), departmentID))
+                .filter(e -> Objects.equals(e.getID(), ID))
                 .min(Comparator.comparingDouble(Employee::getSalary))
                 .orElse(null);
-    }
-
-    public List<Employee> allEmployeeInDepartment(int departmentID) {
-        return employees.values().stream()
-                .filter(e -> Objects.equals(e.getDepartmentID(), departmentID))
-                .collect(Collectors.toList());
     }
 
     @Override
@@ -50,8 +51,8 @@ public class DepartmentServiceImpl implements DepartmentService {
         return null;
     }
 
-    public List<Employee> allEmployee(int departmentID) {
+    public List<Employee> allEmployee(int ID) {
         return (List<Employee>) employees.values().stream()
-                .collect(Collectors.groupingBy(Employee::getDepartmentID));
+                .collect(Collectors.groupingBy(Employee::getID));
     }
 }
