@@ -1,7 +1,6 @@
 package pro.Sky.EmployeeBook.service;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 import pro.Sky.EmployeeBook.Employee;
 
 import java.util.*;
@@ -17,7 +16,6 @@ public class DepartmentServiceImpl implements DepartmentService {
         this.maxEmployees = maxEmployees;
     }
 
-    @Override
     public Map<String, Employee> printEmployee() {
         return null;
     }
@@ -28,8 +26,11 @@ public class DepartmentServiceImpl implements DepartmentService {
                 .collect(Collectors.toList());
     }
 
-    public Employee sumSalaryByDepartment(int ID) {
-        return null;
+    public int sumSalaryByDepartment(int ID) {
+        return employees.values().stream()
+                .filter(e -> Objects.equals(e.getID(), ID))
+                .mapToInt(Employee::getSalary)
+                .sum();
     }
 
     public Employee maxSalaryByDepartment(int ID) {
@@ -47,12 +48,8 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public List<Employee> allEmployee() {
-        return null;
-    }
-
-    public List<Employee> allEmployee(int ID) {
-        return (List<Employee>) employees.values().stream()
+    public Map<Integer, List<Employee>> allEmployee() {
+        return employees.values().stream()
                 .collect(Collectors.groupingBy(Employee::getID));
     }
 }

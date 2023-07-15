@@ -3,12 +3,8 @@ package pro.Sky.EmployeeBook.controller;
 import org.springframework.web.bind.annotation.*;
 import pro.Sky.EmployeeBook.Employee;
 import pro.Sky.EmployeeBook.service.DepartmentService;
-import pro.Sky.EmployeeBook.service.DepartmentServiceImpl;
-import pro.Sky.EmployeeBook.service.EmployeeBookService;
 
 import java.util.List;
-import java.util.Map;
-
 
 
 @RestController
@@ -26,7 +22,7 @@ public class DepartmentController {
     }
 
     @GetMapping(path = "/{ID}/salary/sum")
-    public Employee sumSalaryByDepartment(@PathVariable int ID) {
+    public int sumSalaryByDepartment(@PathVariable int ID) {
         return departmentService.sumSalaryByDepartment(ID);
 
     }
