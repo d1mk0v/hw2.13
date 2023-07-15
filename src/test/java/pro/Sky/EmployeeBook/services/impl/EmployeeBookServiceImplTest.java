@@ -1,11 +1,12 @@
-package pro.Sky.EmployeeBook.service;
+package pro.Sky.EmployeeBook.services.impl;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pro.Sky.EmployeeBook.Employee;
-import pro.Sky.EmployeeBook.exeption.EmployeeAlreadyAddedException;
-import pro.Sky.EmployeeBook.exeption.EmployeeNotFoundException;
-import pro.Sky.EmployeeBook.exeption.EmployeeStorageIsFullException;
+import pro.Sky.EmployeeBook.model.Employee;
+import pro.Sky.EmployeeBook.exeptions.EmployeeAlreadyAddedException;
+import pro.Sky.EmployeeBook.exeptions.EmployeeNotFoundException;
+import pro.Sky.EmployeeBook.services.api.EmployeeBookService;
+import pro.Sky.EmployeeBook.services.impl.EmployeeBookServiceImpl;
 
 import java.util.HashMap;
 import java.util.Map;

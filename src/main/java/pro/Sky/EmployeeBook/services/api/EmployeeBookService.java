@@ -1,6 +1,6 @@
-package pro.Sky.EmployeeBook.service;
+package pro.Sky.EmployeeBook.services.api;
 
-import pro.Sky.EmployeeBook.Employee;
+import pro.Sky.EmployeeBook.model.Employee;
 
 import java.util.List;
 import java.util.Map;
@@ -11,6 +11,8 @@ public interface EmployeeBookService {
     Employee findEmployee(String firstName, String lastName, int ID, double salary);
 
     Map<String, Employee> printEmployee();
+
+    Map<String, Employee> getEmployees();
 
     List<Employee> allEmployee();
 }

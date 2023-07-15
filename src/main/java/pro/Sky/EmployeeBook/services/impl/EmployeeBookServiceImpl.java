@@ -1,12 +1,11 @@
-package pro.Sky.EmployeeBook.service;
+package pro.Sky.EmployeeBook.services.impl;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
-import pro.Sky.EmployeeBook.Employee;
-import pro.Sky.EmployeeBook.exeption.EmployeeAlreadyAddedException;
-import pro.Sky.EmployeeBook.exeption.EmployeeNotFoundException;
-import pro.Sky.EmployeeBook.exeption.EmployeeStorageIsFullException;
-import pro.Sky.EmployeeBook.exeption.InvalidInputException;
+import pro.Sky.EmployeeBook.model.Employee;
+import pro.Sky.EmployeeBook.exeptions.EmployeeAlreadyAddedException;
+import pro.Sky.EmployeeBook.exeptions.EmployeeNotFoundException;
+import pro.Sky.EmployeeBook.exeptions.EmployeeStorageIsFullException;
+import pro.Sky.EmployeeBook.services.api.EmployeeBookService;
 
 import java.util.*;
 
@@ -14,7 +13,9 @@ import static org.apache.commons.lang3.StringUtils.*;
 
 @Service
 public class EmployeeBookServiceImpl implements EmployeeBookService {
+
     private final Map<String, Employee> employees;
+    public double sumSalaryByDepartment;
     private int maxEmployees = 10;
 
     public EmployeeBookServiceImpl() {
@@ -76,6 +77,11 @@ public class EmployeeBookServiceImpl implements EmployeeBookService {
 
     @Override
     public Map<String, Employee> printEmployee() {
+        return employees;
+    }
+
+    @Override
+    public Map<String, Employee> getEmployees() {
         return employees;
     }
 

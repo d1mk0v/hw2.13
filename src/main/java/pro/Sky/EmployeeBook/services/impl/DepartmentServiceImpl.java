@@ -1,7 +1,9 @@
-package pro.Sky.EmployeeBook.service;
+package pro.Sky.EmployeeBook.services.impl;
 
 import org.springframework.stereotype.Service;
-import pro.Sky.EmployeeBook.Employee;
+import pro.Sky.EmployeeBook.model.Employee;
+import pro.Sky.EmployeeBook.services.api.DepartmentService;
+import pro.Sky.EmployeeBook.services.api.EmployeeBookService;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -11,7 +13,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     private final Map<String, Employee> employees;
     private int maxEmployees = 10;
 
-    public DepartmentServiceImpl() {
+    public DepartmentServiceImpl(EmployeeBookService employeeBookService) {
         this.employees = new HashMap<>();
         this.maxEmployees = maxEmployees;
     }
@@ -29,7 +31,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     public int sumSalaryByDepartment(int ID) {
         return employees.values().stream()
                 .filter(e -> Objects.equals(e.getID(), ID))
-                .mapToInt(Employee::getSalary)
+                .mapToInt( value -> (int) value.getSalary())
                 .sum();
     }
 

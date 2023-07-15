@@ -1,6 +1,6 @@
-package pro.Sky.EmployeeBook.service;
+package pro.Sky.EmployeeBook.services.api;
 
-import pro.Sky.EmployeeBook.Employee;
+import pro.Sky.EmployeeBook.model.Employee;
 
 import java.util.List;
 import java.util.Map;
@@ -13,4 +13,5 @@ public interface DepartmentService {
     List<Employee> allEmployeeInDepartment(int ID);
 
     Map<Integer, List<Employee>> allEmployee();
+
 }

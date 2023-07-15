@@ -1,4 +1,4 @@
-package pro.Sky.EmployeeBook;
+package pro.Sky.EmployeeBook.model;
 
 import java.util.Objects;
 
@@ -67,5 +67,7 @@ public class Employee {
     public int hashCode() {
         return Objects.hash(firstName, lastName);
     }
+
+
 
 }

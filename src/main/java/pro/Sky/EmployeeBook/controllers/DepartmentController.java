@@ -1,8 +1,8 @@
-package pro.Sky.EmployeeBook.controller;
+package pro.Sky.EmployeeBook.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import pro.Sky.EmployeeBook.Employee;
-import pro.Sky.EmployeeBook.service.DepartmentService;
+import pro.Sky.EmployeeBook.model.Employee;
+import pro.Sky.EmployeeBook.services.api.DepartmentService;
 
 import java.util.List;
 
