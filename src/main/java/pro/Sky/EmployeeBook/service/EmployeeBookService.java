@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface EmployeeBookService {
-    Employee addNewEmployee(String firstName, String lastName, int departmentID, double salary);
-    Employee removeEmployee(String firstName, String lastName, int departmentID, double salary);
-    Employee findEmployee(String firstName, String lastName, int departmentID, double salary);
+    Employee addNewEmployee(String firstName, String lastName, int ID, double salary);
+    Employee removeEmployee(String firstName, String lastName, int ID, double salary);
+    Employee findEmployee(String firstName, String lastName, int ID, double salary);
 
     Map<String, Employee> printEmployee();
 

@@ -21,8 +21,8 @@ public class EmployeeBookServiceImpl implements EmployeeBookService {
         this.employees = new HashMap<>();
     }
 
-    public Employee addNewEmployee(String firstName, String lastName, int departmentID, double salary) {
-        Employee employee = new Employee(firstName, lastName, departmentID, salary);
+    public Employee addNewEmployee(String firstName, String lastName, int ID, double salary) {
+        Employee employee = new Employee(firstName, lastName, ID, salary);
         validationOfIncomingData(firstName, lastName);
 
         if (employees.size() >= maxEmployees) {
@@ -39,8 +39,8 @@ public class EmployeeBookServiceImpl implements EmployeeBookService {
         return employee;
     }
 
-    public Employee removeEmployee(String firstName, String lastName, int departmentID, double salary) {
-        Employee employee = new Employee(firstName, lastName, departmentID, salary);
+    public Employee removeEmployee(String firstName, String lastName, int ID, double salary) {
+        Employee employee = new Employee(firstName, lastName, ID, salary);
         validationOfIncomingData(firstName, lastName);
 
         if (employees.containsKey(employee.getFullName())) {
@@ -54,8 +54,8 @@ public class EmployeeBookServiceImpl implements EmployeeBookService {
         return employee;
     }
 
-    public Employee findEmployee(String firstName, String lastName, int departmentID, double salary) {
-        Employee employee = new Employee(firstName, lastName, departmentID, salary);
+    public Employee findEmployee(String firstName, String lastName, int ID, double salary) {
+        Employee employee = new Employee(firstName, lastName, ID, salary);
         validationOfIncomingData(firstName, lastName);
 
         if (employees.containsKey(employee.getFullName())) {
