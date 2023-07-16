@@ -1,6 +1,4 @@
-package pro.Sky.EmployeeBook;
-
-import org.apache.commons.lang3.StringUtils;
+package pro.Sky.EmployeeBook.model;
 
 import java.util.Objects;
 
@@ -9,22 +7,22 @@ import static org.apache.commons.lang3.StringUtils.*;
 public class Employee {
     private final String firstName;
     private final String lastName;
-    private int departmentID;
+    private int ID;
     private double salary;
 
-    public Employee(String firstName, String lastName, int departmentID, double salary) {
+    public Employee(String firstName, String lastName, int ID, double salary) {
         this.firstName = capitalize(firstName.toLowerCase());
         this.lastName = capitalize(lastName.toLowerCase());
-        this.departmentID = departmentID;
+        this.ID = ID;
         this.salary = salary;
     }
 
-    public int getDepartmentID() {
-        return departmentID;
+    public int getID() {
+        return ID;
     }
 
-    public void setDepartmentID(int departmentID) {
-        this.departmentID = departmentID;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public double getSalary() {
@@ -60,7 +58,7 @@ public class Employee {
         return "Employee{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", department=" + departmentID +
+                ", department=" + ID +
                 ", salary=" + salary +
                 '}';
     }
@@ -69,5 +67,7 @@ public class Employee {
     public int hashCode() {
         return Objects.hash(firstName, lastName);
     }
+
+
 
 }
