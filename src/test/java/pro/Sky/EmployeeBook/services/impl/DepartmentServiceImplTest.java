@@ -42,10 +42,10 @@ public class DepartmentServiceImplTest {
         Employee employee2 = new Employee("Петр", "Петров", 1, 300_000);
         Employee employee3 = new Employee("Степан", "Сидоров", 2, 250_000);
 
-        Map<Integer, Employee> employees = new HashMap<>();
-        employees.put(1, employee1);
-        employees.put(2, employee2);
-        employees.put(3, employee3);
+        Map<String, Employee> employees = new HashMap<>();
+        employees.put("Иван Иванов", employee1);
+        employees.put("Петр Петров", employee2);
+        employees.put("Степан Сидоров", employee3);
 
         when(employeeBookService.getEmployees()).thenReturn(employees);
 
@@ -62,10 +62,10 @@ public class DepartmentServiceImplTest {
         Employee employee2 = new Employee("Петр", "Петров", 1, 300_000);
         Employee employee3 = new Employee("Степан", "Сидоров", 2, 250_000);
 
-        Map<Integer, Employee> employees = new HashMap<>();
-        employees.put(1, employee1);
-        employees.put(2, employee2);
-        employees.put(3, employee3);
+        Map<String, Employee> employees = new HashMap<>();
+        employees.put("Иван Иванов", employee1);
+        employees.put("Петр Петров", employee2);
+        employees.put("Степан Сидоров", employee3);
 
         Mockito.when(employeeBookService.getEmployees()).thenReturn(employees);
 
@@ -82,10 +82,10 @@ public class DepartmentServiceImplTest {
         Employee employee2 = new Employee("Петр", "Петров", 1, 300_000);
         Employee employee3 = new Employee("Степан", "Сидоров", 2, 250_000);
 
-        Map<Integer, Employee> employees = new HashMap<>();
-        employees.put(1, employee1);
-        employees.put(2, employee2);
-        employees.put(3, employee3);
+        Map<String, Employee> employees = new HashMap<>();
+        employees.put("Иван Иванов", employee1);
+        employees.put("Петр Петров", employee2);
+        employees.put("Степан Сидоров", employee3);
 
         Mockito.when(employeeBookService.getEmployees()).thenReturn(employees);
 
@@ -99,10 +99,10 @@ public class DepartmentServiceImplTest {
         Employee employee2 = new Employee("Петр", "Петров", 1, 300_000);
         Employee employee3 = new Employee("Степан", "Сидоров", 2, 250_000);
 
-        Map<Integer, Employee> employees = new HashMap<>();
-        employees.put(1, employee1);
-        employees.put(2, employee2);
-        employees.put(3, employee3);
+        Map<String, Employee> employees = new HashMap<>();
+        employees.put("Иван Иванов", employee1);
+        employees.put("Петр Петров", employee2);
+        employees.put("Степан Сидоров", employee3);
 
         Mockito.when(employeeBookService.getEmployees()).thenReturn(employees);
 
