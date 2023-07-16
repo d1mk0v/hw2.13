@@ -18,10 +18,6 @@ public class DepartmentServiceImpl implements DepartmentService {
         this.maxEmployees = maxEmployees;
     }
 
-    public Map<String, Employee> printEmployee() {
-        return null;
-    }
-
     public List<Employee> allEmployeeInDepartment(int ID) {
         return employees.values().stream()
                 .filter(e -> Objects.equals(e.getID(), ID))

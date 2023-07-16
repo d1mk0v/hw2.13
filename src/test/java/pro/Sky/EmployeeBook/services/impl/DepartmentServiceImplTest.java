@@ -12,10 +12,7 @@ import pro.Sky.EmployeeBook.model.Employee;
 import pro.Sky.EmployeeBook.services.api.DepartmentService;
 import pro.Sky.EmployeeBook.services.api.EmployeeBookService;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -110,7 +107,8 @@ public class DepartmentServiceImplTest {
         expected.put(1, Arrays.asList(employee1, employee2));
         expected.put(2, Arrays.asList(employee3));
 
-        Map<Integer, List<Employee>> actual = departmentService.allEmployeeInDepartment();
+        departmentService.allEmployee();
+        Map<Integer, List<Employee>> actual = departmentService.allEmployee();
 
         assertEquals(expected.keySet(), actual.keySet());
         assertEquals(expected.size(), actual.size());
